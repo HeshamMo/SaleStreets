@@ -33,5 +33,6 @@ app can have multiple users with multiple permissions these permissions can be g
 
 # Controling every product category
 adding product process can be extended to make the product include different categories
-![image](https://github.com/HeshamMo/SaleStreets/assets/85097712/398049c3-12fc-40c6-b99f-3eddebbe7445)
+![image](https://github.com/HeshamMo/SaleStreets/assets/85097712/79048fbc-c699-4427-86ed-f79e5bff0dd1)
+
 
