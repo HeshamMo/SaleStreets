@@ -1,0 +1,74 @@
+﻿@model IEnumerable<Sale_Street.Models.Product>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table row">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th class="col-3">
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>                @Html.DisplayNameFor(model => model.price)
+            </th>
+            <th>                @Html.DisplayNameFor(model => model.publishedAt)
+            </th>
+            
+            <th>Image</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td style="text-overflow: clip; word-break: keep-all; line-break: anywhere">
+               
+
+                 @Html.DisplayFor(modelItem => item.Description)
+                    
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.publishedAt)
+            </td>
+
+            <td>
+                @{
+
+
+
+                    var imgs = item.Images.ToList();
+                   
+                   
+                    
+                }
+                @if (imgs!= null)
+                {
+                    
+                <img src="@imgs.FirstOrDefault().ActualImage" style="width: 200px;">
+                        
+                    
+
+                }
+            </td>
+            <td>
+              
+                <a asp-action="Details" asp-route-id="@item.id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

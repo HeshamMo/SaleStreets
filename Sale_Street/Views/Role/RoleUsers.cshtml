@@ -1,0 +1,24 @@
+﻿@model IEnumerable<AppUser>
+
+<h1>
+    @ViewData["roleName"]
+</h1>
+
+<a asp-action="AddUserToRole" , asp-controller="Role" asp-route-id="@ViewData["RoleId"]" class="card-link btn btn-primary">Add User</a>
+
+
+@foreach(var user in @Model)
+{
+    <div class="card">
+        <div class="card-body">
+            <div class="card-title">
+                @user.UserName
+
+            </div>
+            <a asp-action="RemoveUserFromRole" , asp-controller="Role" asp-route-id="@user.Id"  asp-route-RoleId="@ViewData["RoleId"]"
+               class="card-link btn btn-primary">Remove</a>
+        </div>
+
+    </div>
+
+}

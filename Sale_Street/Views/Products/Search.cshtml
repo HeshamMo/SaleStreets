@@ -1,0 +1,103 @@
+﻿@model IEnumerable<Sale_Street.Models.Product>
+
+@{
+    ViewData["Title"] = "Search";
+}
+
+<h1>Search Results</h1>
+
+
+<div class="container">
+    
+    <div class="row">
+
+@foreach (var item in Model)
+{
+
+
+          
+    <div class="col-sm-12 col-md-4 col-4 ">
+        <div class="card">
+            <div class="card-header d-flex justify-content-center " >
+
+        @if (item.Images != null)
+        {                <a class="card-link" asp-action="Details" asp-route-id="@item.id" asp-controller="Products">
+
+
+                <img style="height: 200px"src="@item.Images.FirstOrDefault().ActualImage" alt="Card image cap">
+
+            </a>
+        }
+            </div>
+            <div class="card-body">
+                         
+                          
+                <h4 class="card-title" style="overflow: hidden; height: 120px;">@item.Name</h4>
+                        <p class="card-text" style="color: #796f6f; overflow: hidden; height: 120px;" >@item.Description</p>
+                
+                @if (item.price == 0)
+                {
+                            <p class="card-text" style="color: #796f6f;">Confidential Price</p>
+
+                }
+                else
+                {
+                            <p class="card-text" style="color: #796f6f;">@item.price EGP</p>
+
+                }
+                        <p style="color: #796f6f;">@item.Location</p>
+                        <p style="color: #796f6f;">
+                    @{
+                        DateTime date = @item.publishedAt;
+                        var days = DateTime.Now.Subtract(date).Days;
+                        //{date.Day}/{date.Month}/{date.Year}
+                        string DaysAgo="0";
+                        if (days == 0)
+                        {
+                            DaysAgo = "Today";
+                        }
+                        else
+                        {
+                            DaysAgo = $"{days} days ago";
+                        }
+                    }
+                    Published :@DaysAgo
+                            </p>
+            </div>
+        </div>
+    </div>
+    
+}
+    
+</div>
+
+    </div>
+<div class="row justify-content-center">
+    @if(Convert.ToInt32(ViewData["page"])!=0)
+   {
+       <form asp-action="Search" style="margin: 5px">
+           @{
+               int pageNum = Convert.ToInt32(@ViewData["page"]) - 1;
+               pageNum = pageNum < 0 ? 0 : pageNum;
+           }
+           <input type="hidden" value="@pageNum" name="pageNum"/>
+           <input type="hidden" value="@ViewData["keyword"]" name="keyword"/>
+           <button class="btn-primary" type="submit" name="submit" value="submit">Back</button>
+       </form>
+   }
+    @if (Model.Count() != 0){
+   
+    <form asp-action="Search" style="margin:5px">
+        @{
+            int pageNum = Convert.ToInt32(@ViewData["page"]) + 1;
+            if (@Model.Count() == 0)
+            {
+                pageNum--; 
+            }
+        }
+        <input type="hidden" value="@pageNum" name="pageNum"/>
+        <input type="hidden" value="@ViewData["keyword"]" name="keyword"/>
+        <button class="btn-primary" type="submit" name="submit" value="submit">Next</button>
+    </form>
+    }
+</div>

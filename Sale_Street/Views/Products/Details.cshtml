@@ -1,0 +1,82 @@
+﻿@model Sale_Street.Models.Product
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div class="container">
+   
+    <div class="card">
+        <div class="card-header">
+
+        <h4>@Model.Name</h4>
+        </div>
+        <div class="card-body">
+            <h6>
+                @Model.Description
+            </h6>
+
+
+            @if(@Model.price == 0)
+            {
+                <p class="card-text">Confidential Price</p>
+
+            }
+            else
+            {
+                <p class="card-text">@Model.price EGP</p>
+
+            }
+
+            <p>Publisher : @Model.publisher.Name</p>
+            @if(@Model.publisher.PhoneNumber != null)
+            {
+                <p>Contact me : <a href="tel:+@Model.publisher.PhoneNumber">@Model.publisher.PhoneNumber</a></p>
+
+            }
+            <p>
+                @{
+                    DateTime date = @Model.publishedAt;
+                    var days = DateTime.Now.Subtract(date).Days;
+                    //{date.Day}/{date.Month}/{date.Year}
+                    string DaysAgo = days.ToString(); 
+                    if(days == 0)
+                    {
+                        DaysAgo = "Today";
+                    }
+                    else
+                    {
+                        DaysAgo = $"{DaysAgo} days ago";
+                    }
+                }
+                Published :@DaysAgo
+            </p>
+            <p>
+                @Model.Location
+            </p>
+        </div>
+    </div>
+    <div class="row" style="margin-left:10px;">
+        @if (Model.Images != null)
+        {
+            @foreach(var item in Model.Images)
+            {
+                <div class="col-6">
+
+                    <img class="align-self-center" style="max-height: 400px"src="@item.ActualImage" >
+
+                </div>
+            }
+                       
+        }
+    </div>
+  
+</div>
+
+@*<div>
+    <a asp-action="Edit" asp-route-id="@Model.id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
+*@

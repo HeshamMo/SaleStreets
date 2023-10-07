@@ -1,0 +1,71 @@
+﻿@model Sale_Street.ViewModels.RegisterViewModel
+
+
+<form asp-action="Register" asp-controller="Account" method="post">
+	<div class="form-group" asp-validation-summary="All"></div>
+	<div class="form-group">
+		<label asp-for="Name"></label>
+		<input asp-for="Name" class="form-control"  placeholder="Enter your name"/>
+		<span asp-validation-for="Name" class="text-danger"></span>
+	</div>
+	<div class="form-group">
+		<label asp-for="Email"></label>
+		<input asp-for="Email" class="form-control" placeholder="Enter your E-mail" />
+		<span asp-validation-for="Email" class="text-danger" placeholder="Enter your Email"></span>
+
+	</div>
+	<div class="form-group">
+		<label asp-for="Country"></label>
+		<input asp-for="Country" class="form-control" placeholder="Enter your country" />
+		<span asp-validation-for="Country" class="text-danger"></span>
+
+	</div>
+	<div class="form-group">
+		<label asp-for="Password"></label>
+		<input asp-for="Password" class="form-control" placeholder="Enter your Password" />
+		<span asp-validation-for="Password" class="text-danger"></span>
+
+	</div>
+	<div class="form-group">
+		<label asp-for="ConfirmedPassword"></label>
+		<input asp-for="ConfirmedPassword" class="form-control"  placeholder="Re Enter your password"/>
+		<span asp-validation-for="ConfirmedPassword" class="text-danger"></span>
+
+	</div>
+    <div class="form-group">
+        <label asp-for="Age"></label>
+        <input asp-for="Age" class="form-control" placeholder="Enter your age"/>
+        <span asp-validation-for="Age" class="text-danger"></span>
+
+    </div>
+    <div class="form-group">
+        <label asp-for="PhoneNumber"></label>
+		<input asp-for="PhoneNumber" class="form-control" placeholder="Enter your phone"/>
+		<span asp-validation-for="PhoneNumber" class="text-danger"></span>
+
+    </div>
+	<div class="form-group">
+		<input type="submit" value="submit" name="submit" class="btn btn-primary" />
+	</div>
+</form>
+<style>
+.form-control {
+	text-align:center;
+	width:400px;
+		transition: width 2s linear 1s;
+		
+}	
+.form-control :hover{
+	width:500px;
+}
+
+input{
+	flex-basis:50% ; 
+}
+label{
+		color: #146C94;
+	}
+
+
+
+</style>
