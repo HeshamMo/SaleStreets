@@ -15,21 +15,23 @@ and limiting access to certain resources depending on your role
 
 # CRUD Operations for every Product
 the user should be able to make multiple operations on every product he owns
-![image](https://github.com/HeshamMo/SaleStreets/assets/85097712/32ffd548-8d5c-409e-bdd0-66e4ada00dcb)
+![image](https://github.com/HeshamMo/SaleStreets/assets/85097712/a2efd721-d8d9-4341-8bf5-65e8cfc9c7b1)
 
 
 
 # Controling roles and permissions 
 app can have multiple users with multiple permissions these permissions can be given or taken from users 
-![image](https://github.com/HeshamMo/SaleStreets/assets/85097712/d5bded13-cbc2-4f87-80ed-c30dba1b0472)
+![image](https://github.com/HeshamMo/SaleStreets/assets/85097712/9b84d6ec-5081-4979-8559-6cd51633564f)
+
 
 
 # Searching Products
-![image](https://github.com/HeshamMo/SaleStreets/assets/85097712/1d0035f7-294f-48d7-ab0d-193f8c1f426c)
+ ![image](https://github.com/HeshamMo/SaleStreets/assets/85097712/be367faa-1896-449d-b5db-bb36dd06199d)
+
 
 
 
 # Controling every product category
 adding product process can be extended to make the product include different categories
-![image](https://github.com/HeshamMo/SaleStreets/assets/85097712/012bfe52-a8d4-4b7a-90ee-c524132de8b3)
+![image](https://github.com/HeshamMo/SaleStreets/assets/85097712/398049c3-12fc-40c6-b99f-3eddebbe7445)
 
